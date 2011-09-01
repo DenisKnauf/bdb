@@ -10,7 +10,7 @@ require 'mkmf'
 end
 
 # MacPorts installs the directories "inside-out" compared to the structure expected above
-macports_db_versions = Dir["/opt/local/include/db*"].map { |dir| /\d\d$/.match(dir)[0] }
+macports_db_versions = Dir["/opt/local/include/db[0-9][0-9]"].map { |dir| bin = /\d\d$/.match(dir)[0] }
 macports_db_versions.each do |version|
   dir_config('db', "/opt/local/include/db#{version}", "/opt/local/lib/db#{version}")
 end
